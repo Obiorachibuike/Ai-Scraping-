@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  research-agent:
+    build: ./research_agent
+    ports:
+      - "5000:5000"   # Flask
+      - "8501:8501"   # Streamlit
+    volumes:
+      - ./research_agent:/app
+      - ./research_agent/knowledge_base:/app/knowledge_base  # persist FAISS index
+    environment:
+      - FLASK_ENV=production
+    networks:
+      - research-net
+
+networks:
+  research-net:
+    driver: bridge

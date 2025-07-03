@@ -1,0 +1,179 @@
+Here’s your updated README.md with:
+
+The latest requirements.txt dependencies
+
+.env file usage for API keys
+
+Clean formatting for developers and Docker users
+
+
+
+---
+
+# 🔍 Research Agent with Gemini + Google Search
+
+An intelligent research assistant that combines:
+
+- **Flask** — REST API & HTML UI
+- **Streamlit** — Interactive research frontend
+- **LangChain** — LLM chaining with Gemini
+- **Google CSE** — Real-time web search
+- **FAISS** — Vector memory for document retrieval
+
+---
+
+## 📁 Project Structure
+
+. ├── docker-compose.yml └── research_agent/ ├── Dockerfile ├── requirements.txt ├── main.py                # Launches Flask + Streamlit ├── agent.py               # Gemini + FAISS logic ├── web_search.py          # Google CSE wrapper ├── streamlit_app.py       # Streamlit frontend ├── templates/ │   └── index.html         # Flask HTML frontend ├── static/ │   ├── css/styles.css │   └── js/app.js └── knowledge_base/        # Persistent FAISS index
+
+---
+
+## 🚀 Features
+
+- 💡 Natural language queries with **Gemini Pro**
+- 🔍 Real-time search using **Google Custom Search API**
+- 🧠 Persistent memory powered by **FAISS**
+- 📚 Document-aware LLM responses via **LangChain**
+- 🌐 Dual frontend: Flask HTML + Streamlit UI
+
+---
+
+## 🔧 Tech Requirements
+
+- Python 3.9+
+- Docker & Docker Compose
+- Google API Keys:
+  - `GEMINI_API_KEY`
+  - `GOOGLE_API_KEY`
+  - `GOOGLE_CSE_ID`
+
+---
+
+## 📦 Install Locally (without Docker)
+
+```bash
+cd research_agent
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python main.py
+
+
+---
+
+🐳 Run with Docker (Recommended)
+
+1. Clone the repository
+
+git clone https://github.com/your-username/research-agent.git
+cd research-agent
+
+2. Create a .env file inside research_agent/
+
+GEMINI_API_KEY=your-gemini-api-key
+GOOGLE_API_KEY=your-google-api-key
+GOOGLE_CSE_ID=your-google-cse-id
+
+> ✅ This allows your app to auto-load keys using python-dotenv.
+
+
+
+3. Build and launch the containers
+
+docker-compose up --build
+
+
+---
+
+🌐 Access the App
+
+Service	URL	Description
+
+Flask HTML UI	http://localhost:5000/	Main landing page
+Flask API	http://localhost:5000/api	REST endpoints
+Streamlit UI	http://localhost:8501/	Gemini-powered frontend
+
+
+
+---
+
+📡 API Endpoints
+
+POST /initialize
+
+Initialize the research agent with API keys.
+
+{
+  "gemini_api_key": "your-key",
+  "google_api_key": "your-key",
+  "google_cse_id": "your-id"
+}
+
+POST /research
+
+Submit a research query and get enriched results.
+
+{
+  "query": "What are the health impacts of climate change?"
+}
+
+
+---
+
+📜 requirements.txt
+
+flask>=2.0.0
+google-api-python-client>=2.0.0
+langchain-google-genai>=0.1.0
+langchain>=0.1.0
+faiss-cpu>=1.7.4
+requests>=2.25.0
+streamlit>=1.32.0
+python-dotenv>=1.0.0
+
+
+---
+
+✅ Roadmap Ideas
+
+[ ] File/document uploads to enhance research
+
+[ ] User authentication
+
+[ ] Chat memory stored per user
+
+[ ] Deploy to cloud (Render, Railway, Fly.io)
+
+
+
+---
+
+📜 License
+
+MIT License — free to use, extend, and improve. Contributions welcome!
+
+
+---
+
+🙌 Credits
+
+Built with:
+
+LangChain
+
+Gemini AI
+
+FAISS
+
+Google CSE
+
+
+---
+
+Let me know if you want to include:
+- Screenshots
+- Setup video
+- Deployment instructions (e.g. for Railway or Render)
+
+I can help prepare those next!
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Research Agent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="/static/images/logo.png" alt="Research Agent Logo" class="logo">
+                <h1>Research<span>Agent</span></h1>
+            </div>
+            
+            <div class="api-config">
+                <h3>API Configuration</h3>
+                <div class="input-group">
+                    <label for="gemini-key"><i class="fas fa-key"></i> Gemini API Key</label>
+                    <input type="password" id="gemini-key" placeholder="Enter your Gemini API key">
+                </div>
+                <div class="input-group">
+                    <label for="google-key"><i class="fab fa-google"></i> Google API Key</label>
+                    <input type="password" id="google-key" placeholder="Enter your Google API key">
+                </div>
+                <div class="input-group">
+                    <label for="cse-id"><i class="fas fa-search"></i> CSE ID</label>
+                    <input type="text" id="cse-id" placeholder="Enter your CSE ID">
+                </div>
+                <button id="init-btn" class="btn-primary">
+                    <i class="fas fa-rocket"></i> Initialize Agent
+                </button>
+            </div>
+            
+            <div class="history-panel">
+                <h3>Recent Queries</h3>
+                <div id="query-history"></div>
+            </div>
+        </div>
+        
+        <!-- Main Chat Area -->
+        <div class="main-content">
+            <div class="chat-header">
+                <h2><i class="fas fa-robot"></i> Research Assistant</h2>
+                <div class="status" id="agent-status">
+                    <i class="fas fa-circle"></i> Agent not initialized
+                </div>
+            </div>
+            
+            <div class="chat-container" id="chat-container">
+                <div class="welcome-message">
+                    <h3>Welcome to Research Agent!</h3>
+                    <p>Initialize the agent with your API keys to start researching.</p>
+                    <div class="example-prompts">
+                        <div class="prompt-card" onclick="insertExample('Latest advancements in quantum computing')">
+                            Quantum computing updates
+                        </div>
+                        <div class="prompt-card" onclick="insertExample('Comparison of AI programming languages 2024')">
+                            AI languages comparison
+                        </div>
+                        <div class="prompt-card" onclick="insertExample('Applications of blockchain in healthcare')">
+                            Blockchain in healthcare
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="input-area">
+                <textarea id="user-input" placeholder="Enter your research question..." rows="1"></textarea>
+                <button id="send-btn" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Research
+                </button>
+                <button id="clear-btn" class="btn-secondary">
+                    <i class="fas fa-broom"></i> Clear
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
