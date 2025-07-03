@@ -1,8 +1,6 @@
-# Updated README.md for Research Agent
 
----
 
-# 🔍 Research Agent with Gemini + Google Search
+## 🔍 Research Agent with Gemini + Google Search
 
 An intelligent research assistant powered by:
 
